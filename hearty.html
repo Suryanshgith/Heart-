@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boy Gives Heart to Girl</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('https://source.unsplash.com/1920x1080/?romantic,sky') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Boy */
+        .boy {
+            position: absolute;
+            left: 20%;
+            bottom: 20%;
+            width: 120px;
+            height: 200px;
+        }
+
+        .boy .head {
+            width: 45px;
+            height: 45px;
+            background: #ffcc99;
+            border-radius: 50%;
+            position: absolute;
+            left: 37px;
+        }
+
+        .boy .cap {
+            width: 50px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            left: 35px;
+            top: -10px;
+            border-radius: 50%;
+        }
+
+        .boy .eyes {
+            position: absolute;
+            top: 15px;
+            left: 55px;
+            width: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .boy .eye {
+            width: 5px;
+            height: 5px;
+            background: black;
+            border-radius: 50%;
+        }
+
+        .boy .body {
+            width: 60px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            left: 30px;
+            top: 45px;
+            border-radius: 20px;
+        }
+
+        .boy .hand {
+            width: 15px;
+            height: 50px;
+            background: #ffcc99;
+            position: absolute;
+            top: 55px;
+            left: 80px;
+            transform-origin: top;
+            animation: handMove 3s ease-in-out forwards 2s;
+        }
+
+        @keyframes handMove {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(-30deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .boy .leg {
+            width: 15px;
+            height: 50px;
+            background: black;
+            position: absolute;
+            top: 140px;
+        }
+
+        .boy .leg.left { left: 40px; }
+        .boy .leg.right { left: 65px; }
+
+        /* Girl */
+        .girl {
+            position: absolute;
+            right: 20%;
+            bottom: 20%;
+            width: 120px;
+            height: 200px;
+        }
+
+        .girl .head {
+            width: 45px;
+            height: 45px;
+            background: #ffcc99;
+            border-radius: 50%;
+            position: absolute;
+            left: 37px;
+        }
+
+        .girl .cap {
+            width: 50px;
+            height: 20px;
+            background: pink;
+            position: absolute;
+            left: 35px;
+            top: -10px;
+            border-radius: 50%;
+        }
+
+        .girl .eyes {
+            position: absolute;
+            top: 15px;
+            left: 45px;
+            width: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .girl .eye {
+            width: 5px;
+            height: 5px;
+            background: black;
+            border-radius: 50%;
+        }
+
+        .girl .body {
+            width: 60px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+            left: 30px;
+            top: 45px;
+            border-radius: 20px;
+        }
+
+        .girl .leg {
+            width: 15px;
+            height: 50px;
+            background: black;
+            position: absolute;
+            top: 140px;
+        }
+
+        .girl .leg.left { left: 40px; }
+        .girl .leg.right { left: 65px; }
+
+        /* Heart */
+        .heart {
+            position: absolute;
+            left: 25%;
+            bottom: 40%;
+            font-size: 40px;
+            opacity: 1;
+            animation: heartMove 5s linear forwards 2.5s;
+        }
+
+        /* Love Text */
+        .text {
+            position: absolute;
+            bottom: 5%;
+            font-family: "Georgia", serif;
+            font-size: 40px;
+            color: black;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 5.5s forwards;
+        }
+
+        /* Heart Movement - Constant and Slow */
+        @keyframes heartMove {
+            0% { opacity: 1; left: 35%; bottom: 50%; }
+            50% { left: 55%; bottom: 55%; }
+            100% { left: 75%; bottom: 50%; opacity: 0; } /* Heart completely disappears */
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Boy -->
+    <div class="boy">
+        <div class="cap"></div>
+        <div class="head"></div>
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+        <div class="body"></div>
+        <div class="hand"></div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+    </div>
+
+    <!-- Heart -->
+    <div class="heart">❤️</div>
+
+    <!-- Girl -->
+    <div class="girl">
+        <div class="cap"></div>
+        <div class="head"></div>
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+        <div class="body"></div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+    </div>
+
+    <!-- Love Text -->
+    <div class="text">FOR MY LOVE ❤</div>
+
+</body>
+</html>
