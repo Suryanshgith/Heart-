@@ -4,39 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Falling Hearts</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Move your CSS to an external file -->
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* Temporary inline styles for demo purposes */
-    body {
+    /* Ensure full screen without scrolling */
+    * {
       margin: 0;
-      overflow: hidden;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden; /* Prevent scrolling */
       background: #0F3460;
       height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
     }
+
+    /* Falling hearts */
     .heart {
       position: absolute;
       top: -10px;
-      font-size: 48px;
+      font-size: 5vw; /* Scales with screen size */
       animation: fall linear infinite;
     }
+
     @keyframes fall {
       to {
         transform: translateY(100vh) rotate(360deg);
         opacity: 0;
       }
     }
+
+    /* Dedication text */
+    .dedication {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      font-size: min(5vw, 18px); /* Adjusts to fit */
+      color: white;
+      font-family: "Poppins", sans-serif;
+      text-align: right;
+      white-space: nowrap; /* Prevents text wrapping */
+    }
+
+    .dedication span {
+      font-family: "Dancing Script", cursive;
+      font-size: min(6vw, 22px);
+      font-weight: bold;
+      color: #FFC107; /* Gold */
+    }
+
+    /* Floating button */
+    .menu-button {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      background: #FFC107;
+      color: #0F3460;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: "Poppins", sans-serif;
+      transition: 0.3s;
+    }
+
+    .menu-button:hover {
+      background: #e0a800;
+    }
+
+    /* Pop-up menu */
+    .popup-menu {
+      position: absolute;
+      bottom: 12%;
+      left: 5%;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+    }
+
+    .popup-menu a {
+      text-decoration: none;
+      color: #0F3460;
+      font-weight: bold;
+      font-family: "Poppins", sans-serif;
+      padding: 5px 0;
+    }
+
+    .popup-menu a:hover {
+      color: #FFC107;
+    }
   </style>
 </head>
 <body> 
-    <div style="position: fixed; bottom: 10px; right: 10px; font-size: 14px; color: gray;">
-        For my dear Ayra
-    </div>  
+  <!-- Dedication Message -->
+  <div class="dedication">
+    FOR MY DEAR <span>AYRA</span>
+  </div>
+
+  <!-- Floating Button -->
+  <button class="menu-button" onclick="toggleMenu()">Click Me</button>
+
+  <!-- Pop-up Menu -->
+  <div class="popup-menu" id="popupMenu">
+    <a href="https://www.katysdaisies.com/share/QVlSQXxTdXJ5YW5zaHxCZWF1dGlmdWwgYm91cXVldCB0byB0aGUgbW9zdCBjaGFybWluZyBmbG93ZXJ8VGVhcnkgRXllczogTGlnaHQgSW4gWW91ciBMaWZlfDQ0/?whatsapp=1">For my baby</a>
+    <a href="
+hearty.html" target="_blank">For my Ayruu</a>
+  </div>
+
   <script>
-    // Configuration constants
+    function toggleMenu() {
+      let menu = document.getElementById("popupMenu");
+      if (menu.style.display === "flex") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "flex";
+      }
+    }
+
     const HEART_INTERVAL = 250;
     const HEART_LIFETIME = 5000;
-    const MIN_FONT_SIZE = 20;
-    const MAX_FONT_SIZE = 50;
+    const MIN_FONT_SIZE = 3;
+    const MAX_FONT_SIZE = 6;
     const MIN_ANIM_DURATION = 2;
     const MAX_ANIM_DURATION = 5;
     const heartSymbols = ["❤️", "💖", "💜", "💙", "💛", "💚", "🩷"];
@@ -51,7 +152,7 @@
 
       Object.assign(heart.style, {
         left: Math.random() * 100 + "vw",
-        fontSize: fontSize + "px",
+        fontSize: fontSize + "vw",
         animationDuration: animationDuration + "s"
       });
 
