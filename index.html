@@ -16,7 +16,7 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       overflow: hidden; /* Prevent scrolling */
       background: #0F3460;
       height: 100vh;
@@ -24,12 +24,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
+      position: fixed; /* Locks position */
     }
 
     /* Falling hearts */
     .heart {
-      position: absolute;
+      position: fixed; /* Ensures no sliding */
       top: -10px;
       font-size: 5vw; /* Scales with screen size */
       animation: fall linear infinite;
@@ -44,8 +44,8 @@
 
     /* Dedication text */
     .dedication {
-      position: absolute;
-      bottom: 5%;
+      position: fixed;
+      top: 5%; /* Fixed to top */
       right: 5%;
       font-size: min(5vw, 18px); /* Adjusts to fit */
       color: white;
@@ -63,7 +63,7 @@
 
     /* Floating button */
     .menu-button {
-      position: absolute;
+      position: fixed;
       bottom: 5%;
       left: 5%;
       background: #FFC107;
@@ -84,7 +84,7 @@
 
     /* Pop-up menu */
     .popup-menu {
-      position: absolute;
+      position: fixed;
       bottom: 12%;
       left: 5%;
       background: white;
@@ -120,18 +120,13 @@
   <!-- Pop-up Menu -->
   <div class="popup-menu" id="popupMenu">
     <a href="https://www.katysdaisies.com/share/QVlSQXxTdXJ5YW5zaHxCZWF1dGlmdWwgYm91cXVldCB0byB0aGUgbW9zdCBjaGFybWluZyBmbG93ZXJ8VGVhcnkgRXllczogTGlnaHQgSW4gWW91ciBMaWZlfDQ0/?whatsapp=1">For my baby</a>
-    <a href="
-hearty.html" target="_blank">For my Ayruu</a>
+    <a href="hearty.html" target="_blank">For my Ayruu</a>
   </div>
 
   <script>
     function toggleMenu() {
       let menu = document.getElementById("popupMenu");
-      if (menu.style.display === "flex") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "flex";
-      }
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
 
     const HEART_INTERVAL = 250;
@@ -162,3 +157,4 @@ hearty.html" target="_blank">For my Ayruu</a>
   </script>
 </body>
 </html>
+      
